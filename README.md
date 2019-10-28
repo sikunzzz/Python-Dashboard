@@ -18,4 +18,6 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 After collecting those data, I started to build components of the dashboard.
 
 * 1. The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data
- 
+* 2. The second part is calculation of monthly mean, median, max of gas price for the date selected in the selector.
+* 3. The third part is plot of daily price movement and traded volume using tick data. The problem I currently have for this part is that there it is very slow to plot the new graph, beacause tick data for one day has huge volume and at the back end, it takes a long time to load the json file.
+
