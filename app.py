@@ -24,7 +24,7 @@ final_df.rename(columns={"CLc1": "13% CLc1"}, inplace=True)
 
 app.layout = html.Div([
     html.H3('Dashboard'),
-    html.H4('data collected from Thomson Reuter Refinitiv'),
+    html.H6('Historical data (2016-11-01 to 2018-10-31) collected from Thomson Reuter Refinitiv'),
 
     html.Div([
         dcc.Graph(id="oil-gas-plot"
@@ -42,12 +42,24 @@ app.layout = html.Div([
 
     html.Div(dcc.DatePickerRange(
             id = 'date-picker',
-            min_date_allowed=datetime(2016,11,1),
-            max_date_allowed=datetime(2018,10,31),
+            min_date_allowed=datetime(2016, 11, 1),
+            max_date_allowed=datetime(2018, 10, 31),
             initial_visible_month=datetime(2017,10,31),
             end_date=datetime(2018,10,31)
     ), #className="six columns")
-        style={'width': '49%', 'padding': '0px 20px 20px 20px'})
+        style={'width': '49%', 'padding': '0px 20px 20px 20px'}),
+
+    html.H6("Tick Data from 2018-10-01 to 2018-12-31"),
+    html.Div([dcc.Graph(id='gas-tick')]),
+
+    html.Div(dcc.DatePickerSingle(
+                 id = 'tick-date-picker',
+                 min_date_allowed=datetime(2018, 10, 1),
+                 max_date_allowed=datetime(2018, 12, 31),
+                 initial_visible_month=datetime(2018, 10, 1),
+                 date=str(datetime(2018, 10, 1))
+             ), #className="six columns")
+                 style={'width': '49%', 'padding': '0px 20px 20px 20px'})
     ]
     )
 
@@ -80,6 +92,49 @@ def update_graph(start_date, end_date):
         'layout': go.Layout(
             xaxis={'title': 'Date'},
             yaxis={'title': 'Price'},
+            margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+            #legend={'x': 0, 'y': 1},
+            hovermode='closest')
+    }
+
+
+@app.callback(
+    dash.dependencies.Output('gas-tick', 'figure'),
+    [dash.dependencies.Input('tick-date-picker', 'date')])
+def update_tick(date):
+
+    if date is None:
+        date = datetime(2018, 10, 1)
+
+    tick_df = rd.loadTRtickdata("NGc1", date).resample("1s").mean()
+
+    return {
+        'data': [go.Scatter(
+            x=tick_df.index,
+            y=tick_df["Price"],
+            mode = 'lines+markers',
+            opacity=0.7,
+            marker={
+                'size': 1,
+                'line': {'width': 0.5, 'color': 'blue'}
+            },
+            name="Price"
+        ), go.Scatter(
+            x=tick_df.index,
+            y=tick_df["Volume"],
+            mode = 'lines+markers',
+            yaxis="y2",
+            opacity=0.7,
+            marker={
+                'size': 1,
+                'line': {'width': 0.5, 'color': 'white'}
+            },
+            name="Volume"
+        )],
+        'layout': go.Layout(
+            xaxis={'title': 'Date'},
+            yaxis={'title': 'Price'},
+            yaxis2={'title': "Volume", 'side':'right', 'overlaying': 'y'},
             margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
             #legend={'x': 0, 'y': 1},
             hovermode='closest')
@@ -123,6 +178,7 @@ def update_summary(start_date, end_date):
             #legend={'x': 0, 'y': 1},
             hovermode='closest')
     }
+
 
 
 if __name__ == '__main__':
