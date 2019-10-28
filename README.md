@@ -13,3 +13,9 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 * Historical Data (daily): NGc1 and CLc1 collected and saved as Jason file.
 * 3 months tick data of NGc1 is collected: each SQL query collect roughly 5 business days of tick data and saved as json file for future use, saved all tick data is impossible because of the volume of data and the computer will run out of memory.
 
+### Dashboard
+
+After collecting those data, I started to build components of the dashboard.
+
+* 1. The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data
+ 
