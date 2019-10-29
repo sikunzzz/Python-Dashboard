@@ -35,7 +35,7 @@ For the median is more trickier, what I have used is a "binning" method. Since I
 The results can for the Oct 2018 median gas price can be plotted in a histogram:
 ![median-tick](/images/oct-median.PNG)
 
-Here is also a summary of the statistics calculated for Oct, Nov, Dec of 2018
+Here is also a summary of the statistics calculated for each month of Oct, Nov, Dec in 2018:
 
 ![summary-stat](/images/summary-stats.PNG)
 
