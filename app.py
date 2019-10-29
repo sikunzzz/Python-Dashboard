@@ -20,11 +20,16 @@ filenames.append(os.getcwd() + "/TRdata_gas.json" )
 final_df = rd.load_TRHistdata(["CLc1","NGc1"], "2016-11-01", "2018-10-31", os.getcwd() + "/TRHist.json")
 final_df["CLc1"] = 0.13*final_df["CLc1"]
 final_df.rename(columns={"CLc1": "13% CLc1"}, inplace=True)
+summary_stats = pd.read_csv("tickdata_summary.csv")
 
 
 app.layout = html.Div([
     html.H3('Dashboard'),
     html.H6('Historical data (2016-11-01 to 2018-10-31) collected from Thomson Reuter Refinitiv'),
+
+    html.Div(children='Oil and Gas Comparison and monthly statistics using daily data', style={
+        'textAlign': 'center'
+    }),
 
     html.Div([
         dcc.Graph(id="oil-gas-plot"
@@ -49,7 +54,17 @@ app.layout = html.Div([
     ), #className="six columns")
         style={'width': '49%', 'padding': '0px 20px 20px 20px'}),
 
-    html.H6("Tick Data from 2018-10-01 to 2018-12-31"),
+    html.H4("Tick Data from 2018-10-01 to 2018-12-31"),
+
+    html.Div(children="Summary table of the tick data statistics", style={
+        'textAlign': 'center'
+    }),
+    rd.generate_table(summary_stats),
+
+    html.Div(children='Daily Gas price and volume movement', style={
+        'textAlign': 'center'
+    }),
+
     html.Div([dcc.Graph(id='gas-tick')]),
 
     html.Div(dcc.DatePickerSingle(

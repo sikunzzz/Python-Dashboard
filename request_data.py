@@ -36,16 +36,16 @@ def getTRtickdata(ticker_list ,start_date="2018-10-01", end_date="2018-12-31"):
 
         for i in range(int(np.ceil(len(date_range)/5))-1):
 
-            if i != int( np.ceil(len(date_range)/5))-2:
+            if i != int(np.ceil(len(date_range)/5))-2:
                 start = date_range[(0+i*5)]
                 end = date_range[(0+(i+1)*5)]
             else:
                 start = date_range[(0+i*5)]
-                end = date_range[len(date_range)]
+                end = date_range[len(date_range)-1]
 
             file_name = os.getcwd() + "/TickData" + ric + "_" + str(start.date()) + "_" + str(end.date()) + ".json"
             if os.path.exists(file_name):
-                next
+                continue
             else:
                 query = part_query1 + "'" + str(start.date()) + " 8:00:00" + "'" + "and" + "'" + str(end.date()) + " 16:00:00" + "'" + part_query2
                 df = pandas_gbq.read_gbq(query, project_id=proj, credentials=cred, dialect='standard')
@@ -146,9 +146,13 @@ def double_axis_plotter(df, colnames_1, colnames_2):
     fig.autofmt_xdate()
 
 
-def generate_table(dataframe, max_rows=20):
-
+def generate_table(dataframe, max_rows=10):
     return html.Table(
-        [html.Tr([html.Th(col) for col in dataframe.columns]
-         for i in range(min(len(dataframe), max_rows)))]
+        # Header
+        [html.Tr([html.Th(col) for col in dataframe.columns])] +
+
+        # Body
+        [html.Tr([
+            html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+        ]) for i in range(min(len(dataframe), max_rows))]
     )
