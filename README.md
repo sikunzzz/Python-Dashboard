@@ -14,6 +14,8 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 ![data-list](/images/json-list.PNG)
 
 ### Dashboard
+First let's demonstrate what final produced dashboard look like:
+[![Demo-dashboard](https://gifs.com/gif/python-dashboard-L7WQOW)](https://www.youtube.com/watch?v=732R3ccmheQ)
 
 After collecting those data, I started to build components of the dashboard.
 
