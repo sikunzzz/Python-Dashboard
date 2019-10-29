@@ -30,7 +30,12 @@ The second part is calculation of monthly mean, median, max of gas price for the
 #### Monthly mean, median, maximum, minimum of gas price from tick data
 The third part is to compute monthly min, max mean and median for the tick data. Because of the large volume of data, we can't load the entire month of tick data, so for min and max, we need to load tick data of 5 days and compute their respectively min, max and mean. We then find the monthly min, max and mean. 
 
-For the median is more trickier, what have used is a binning method. Since I know the minimum and maximum of price and length of the data after the first iteration, I separate the interval between minimum and maximum into equally-spaced bins, i.e if the price is between 3-4, I can separate this interval into 10 bins, each of length 0.1. I then go through each data point and which bin this data point belong to. After this second iteration, then I would know the which bin the median belongs to, so the precision of the median is essentially the width of the bin.
+For the median is more trickier, what I have used is a "binning" method. Since I know the minimum and maximum of price and length of the data after the first iteration, I separate the interval between minimum and maximum into equally-spaced bins, e.g if the price is between $3 and $4, I can separate this interval into 10 bins, each of length 0.1. I then go through each data point and determine which bin this data point belong to. After this second iteration of tick data, I will know which bin the median belongs to, so the precision of the median is essentially the width of the bin.
+
+The results can for the Oct 2018 median gas price can be plotted in a histogram:
+![median-tick](/images/oct-median.PNG)
+
+Here is also a summary of the statistics calculated for Oct, Nov, Dec of 2018
 
 ![summary-stat](/images/summary-stats.PNG)
 
