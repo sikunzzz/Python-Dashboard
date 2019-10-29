@@ -8,14 +8,14 @@
 ### Data collection 
 Historical data is available from 2016-11-01 to 2018-10-31, while tick history is available from 2018-10-01 to 2018-12-31.
 
-* Historical Data (daily): NGc1 and CLc1 collected and saved as Jason file.
-* Three months tick data of NGc1 is collected: each SQL query collect roughly 5 business days of tick data and saved as json file for future use, saved all tick data in one go is impossible because of the volume of data and the computer will run out of memory.
+* Historical Data (daily): NGc1 and CLc1 collected and saved as json file.
+* Three months tick data of NGc1 is collected: each SQL query collects roughly 5 business days of tick data and saved as json files for future use. Saving all tick data in one go is impossible because of the volume of data and the computer will run out of memory.
 
 ![data-list](/images/json-list.PNG)
 
 ### Dashboard
-First let's demonstrate what final produced dashboard look like:
-[![Demo-dashboard](https://j.gifs.com/L7WQOW.gif)]
+First let's demonstrate what the final produced dashboard look like:
+![Demo-dashboard](https://j.gifs.com/QngVjq.gif)
 
 Returning to our procedures, after collecting those data, I started to build components of the dashboard.
 
@@ -28,7 +28,7 @@ The second part is calculation of monthly mean, median, max of gas price for the
 ![hist-gas](/images/historical-gas.PNG)
 
 #### Monthly mean, median, maximum, minimum of gas price from tick data
-The thrid part is to compute monthly min, max mean and median for the tick data. Because of the large volume of data, we can't load the entire month of tick data, so for min and max, we need to load tick data of 5 days and compute their respectively min, max and mean. We then find the monthly min, max and mean. 
+The third part is to compute monthly min, max mean and median for the tick data. Because of the large volume of data, we can't load the entire month of tick data, so for min and max, we need to load tick data of 5 days and compute their respectively min, max and mean. We then find the monthly min, max and mean. 
 
 For the median is more trickier, what have used is a binning method. Since I know the minimum and maximum of price and length of the data after the first iteration, I separate the interval between minimum and maximum into equally-spaced bins, i.e if the price is between 3-4, I can separate this interval into 10 bins, each of length 0.1. I then go through each data point and which bin this data point belong to. After this second iteration, then I would know the which bin the median belongs to, so the precision of the median is essentially the width of the bin.
 
