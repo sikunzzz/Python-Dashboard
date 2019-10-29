@@ -17,7 +17,7 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 First let's demonstrate what final produced dashboard look like:
 [![Demo-dashboard](https://j.gifs.com/L7WQOW.gif)]
 
-After collecting those data, I started to build components of the dashboard.
+Returning to our procedures, after collecting those data, I started to build components of the dashboard.
 
 #### Comparison of Historical Oil and Gas price
 The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data
