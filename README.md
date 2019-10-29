@@ -1,7 +1,9 @@
 
 # Project Summary
 
-This project is an exercise to apply package of dash and plotly to visualize data in dashboard in Python. I also want to find solution to some problems I met recently regarding tick data. Historical data and tick data for Henry Hub gas price and WTI oil price is collected from Thomson Reuter Refinitiv API using SQL query.
+* This project is an exercise to apply package of dash and plotly to visualize data in dashboard in Python. 
+* How to compute minimum, maximum, mean and median of large volume of tick data
+* Historical data and tick data for Henry Hub gas price and WTI oil price is collected from Thomson Reuter Refinitiv API using SQL query.
 
 ### Data collection 
 Historical data is available from 2016-11-01 to 2018-10-31, while tick history is available from 2018-10-01 to 2018-12-31.
@@ -9,7 +11,7 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 * Historical Data (daily): NGc1 and CLc1 collected and saved as Jason file.
 * Three months tick data of NGc1 is collected: each SQL query collect roughly 5 business days of tick data and saved as json file for future use, saved all tick data in one go is impossible because of the volume of data and the computer will run out of memory.
 
-![data-file](/images/json-list.PNG)
+![data-list](/images/json-list.PNG)
 
 ### Dashboard
 
