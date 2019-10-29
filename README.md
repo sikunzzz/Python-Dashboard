@@ -15,7 +15,9 @@ Historical data is available from 2016-11-01 to 2018-10-31, while tick history i
 
 ### Dashboard
 First let's demonstrate what the final produced dashboard look like:
-![Demo-dashboard](https://www.youtube.com/watch?v=732R3ccmheQ)
+![Demo-dashboard1](https://j.gifs.com/XLp3Ao.gif)
+
+![Demo-dashboard2](https://j.gifs.com/6XKk7z.gif)
 
 Returning to our procedures, after collecting those data, I started to build components of the dashboard.
 
