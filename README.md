@@ -2,9 +2,9 @@
 ### Project Summary
 
 * This project is an exercise to apply package of dash and plotly to build a dashboard in Python. 
-* Inspired by a recent problem I met, computed minimum, maximum, mean and median of large volume of tick data
+* Inspired by a recent problem I met, computed minimum, maximum, mean and median of large volume of tick data.
 * Historical data and tick data for Henry Hub gas price and WTI oil price is collected from Thomson Reuter Refinitiv API using SQL query.
-* All source code can be found on my Github page [here](https://github.com/sikunzzz/Python-Dashboard)
+* All source code can be found on my Github page [here](https://github.com/sikunzzz/Python-Dashboard).
 
 ### Data collection 
 Historical data is available from 2016-11-01 to 2018-10-31, while tick history is available from 2018-10-01 to 2018-12-31.
@@ -23,7 +23,7 @@ First let's demonstrate what the dashboard looks like:
 Returning to our procedures of building the dashboard, after collecting those data, I started to each component of it.
 
 #### Comparison of historical iil and gas price
-The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data
+The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data.
 
 #### Monthly mean, median, maximum, minimum of gas price from daily data
 The second part is calculation of monthly mean, median, max of gas price for the date selected in the selector.
