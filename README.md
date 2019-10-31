@@ -3,7 +3,7 @@
 
 * This project is an exercise to apply package of dash and plotly to build a dashboard in Python. 
 * Inspired by a recent problem I met, computed minimum, maximum, mean and median of large volume of tick data.
-* Historical data and tick data for Henry Hub gas price and WTI oil price is collected from Thomson Reuter Refinitiv API using SQL query.
+* Historical data and tick data for Henry Hub gas price and WTI oil price is collected from Thomson Reuters Refinitiv API using SQL query.
 * All source code can be found on my Github page [here](https://github.com/sikunzzz/Python-Dashboard).
 
 ### Data collection 
