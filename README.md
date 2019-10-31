@@ -20,7 +20,7 @@ First let's demonstrate what the dashboard looks like:
 
 ![Demo-dashboard2](https://j.gifs.com/6XKk7z.gif)
 
-Returning to our procedures of building the dashboard, after collecting those data, I started to each component of it.
+Returning to our procedures of building the dashboard, after collecting those data, I started to build each component of it.
 
 #### Comparison of historical iil and gas price
 The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data.
@@ -44,7 +44,7 @@ Here is also a summary of the statistics calculated for each month of Oct, Nov, 
 
 
 #### Daily price movement from tick data
-The fourth part is a plot of daily price movement and traded volume using tick data. The problem I currently have for this part is that there it is very slow to plot the new graph, beacause tick data for one day has huge volume and at the back end, it takes a long time to load the json file.
+The fourth part is a plot of daily price movement and traded volume using tick data. The problem I currently have for this part is that  it is very slow to plot the new graph, beacause tick data for one day has huge volume and at the back end, it takes a long time to load the json file.
 
 ![tick-gas](/images/tick-gas.PNG)
 
