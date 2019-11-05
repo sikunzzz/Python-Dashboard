@@ -22,7 +22,7 @@ First let's demonstrate what the dashboard looks like:
 
 Returning to our procedures of building the dashboard, after collecting those data, I started to build each component of it.
 
-#### Comparison of historical iil and gas price
+#### Comparison of historical oil and gas price
 The first part is basically a comparison chart of gas and oil price. Historically, oil and gas has strong correlation. This graph plots gas price and 13% of oil price together. A date selector is incorporated to choose the period of data.
 
 #### Monthly mean, median, maximum, minimum of gas price from daily data
