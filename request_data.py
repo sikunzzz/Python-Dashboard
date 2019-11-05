@@ -120,7 +120,7 @@ def load_TRHistdata(tickerList, startDate, endDate, fn):
                     close_price.set_index("DATE", inplace=True)
                     df_list.append(close_price)
                 except:
-                    next
+                    continue
 
         final_df = pd.concat(df_list, axis=1, join="outer", sort=False)
         final_df.sort_index(inplace=True)
